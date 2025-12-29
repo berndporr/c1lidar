@@ -32,7 +32,12 @@ set(LIBSRC
 
 add_library(c1lidarrpi STATIC ${LIBSRC})
 
-target_include_directories(c1lidarrpi PUBLIC ${CMAKE_CURRENT_LIST_DIR}/rplidarsdk/sdk/include ${CMAKE_CURRENT_LIST_DIR}/rplidarsdk/sdk/src/ ${CMAKE_CURRENT_LIST_DIR}/.)
+target_include_directories(c1lidarrpi
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rplidarsdk/sdk/include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rplidarsdk/sdk/src/>
+)
 
 set_target_properties(c1lidarrpi PROPERTIES
   POSITION_INDEPENDENT_CODE TRUE
@@ -42,3 +47,18 @@ target_link_libraries(c1lidarrpi Threads::Threads rt)
 
 add_executable(printdata printdata.cpp)
 target_link_libraries(printdata c1lidarrpi Threads::Threads)
+
+install(TARGETS c1lidarrpi EXPORT c1lidarrpi_targets
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+  INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  )
+
+install(DIRECTORY rplidarsdk/ DESTINATION include/rplidarsdk FILES_MATCHING PATTERN "*.h")
+
+install(EXPORT c1lidarrpi_targets
+  DESTINATION lib/cmake/C1LidarRPI
+  FILE C1LidarRPIConfig.cmake
+)
