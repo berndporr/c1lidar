@@ -61,13 +61,9 @@ a successful 360 degree scan. Register your `DataInterface` with
 
 Pipe the data into a textfile and plot it with `gnuplot`:
 ```
-sudo ./printdata > tt2.tsv
+./printdata > tt2.tsv
 gnuplot> plot "tt2.tsv"
 ```
-![alt tag](map.png)
-
-`printRPM` prints the current RPM until you press ctrl-C.
-
 ## Credits
 
 The `rplidarsdk` folder is the `sdk` folder
