@@ -1,20 +1,37 @@
 # Slamtec RPLIDAR C1 driver class for Rock5
 
-This project describes how to connect a Slamtech RPLIDAR C1 directly
-to a Rock5 by using its in-built serial port. So no need to use
-the supplied USB interface.
+![alt tag](lidar_on_robot.jpg)
 
-This repository contains a C++ class which reads the coordinates
-and also does the motor control via PWM of the RPI.
+This project describes how to connect a Slamtech RPLIDAR C1 directly
+to a Rock5 by using its in-built serial port.
 
 A 360 degree scan is provided by a callback at the sampling rate
-of the LIDAR which is kept at 600RPM (10Hz).
+of the LIDAR at 600RPM (10Hz).
+
+## Hardware setup
+
+Connect the LIDAR to the UART pins of the Rock5.
+
+![alt tag](wiring.png)
 
 ## Software
 
 ### Prerequisites
 
-Enable the UART for serial communication.
+This howto is for the Rock5 ARMbian.
+
+Enable the UART for serial communication. Start `sudo nano /boot/armbianEnv.txt`, identify these lines and add/edit them that
+they look like these:
+
+```
+console=display
+overlay_prefix=
+overlays=rk3588-uart2-m0
+```
+
+This enables the UART.
+
+Add yourself to the group dialout to allow access to /dev/tty*.
 
 ### Installation
 
