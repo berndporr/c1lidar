@@ -18,7 +18,7 @@
 using namespace rp::standalone::rplidar;
 
 /**
- * One of the 8192 distance datapoints
+ * One of the 8192 distance datapoints of a scan
  **/
 class C1LidarData
 {
@@ -63,14 +63,14 @@ class C1Lidar
 {
 public:
     /**
-     * @brief The RPM of the LIDAR which is const at 10Hz or 600RPM
-     * Unit here is RPM.
+     * The RPM of the LIDAR which is const at 10Hz or 600RPM
+     * Unit is RPM.
      */
     static constexpr float RPM = 10 * 60;
 
     /**
      * Number of distance readings during one 360 degree
-     * rotation. So we get one reading per degree.
+     * rotation.
      **/
     static constexpr unsigned nDistance = 8192;
 
@@ -83,9 +83,6 @@ public:
      * Starts the data acquisition by spinning up the
      * motor and then saving the data in the current
      * buffer and providing the data via the callback.
-     * The default RPM of the motor is 250 but can be
-     * roughly betweeen 200 and 300. The serial port
-     * is the one which talks to the XV11.
      **/
     void start(const char *serial_port = "/dev/ttyS2",
                const unsigned rpm = 300);
@@ -105,6 +102,8 @@ public:
 
     /**
      * Callback interface which needs to be implemented by the user.
+     * The newScanAvail is an array with fixed length so can also be
+     * processed by an iterator.
      **/
     struct DataInterface
     {
@@ -129,7 +128,9 @@ inline C1LidarData (&getCurrentData()) [nDistance]
     readoutMtx.unlock();
 }
 
-private : static const int nPackets = 90;
+private :
+
+    static const int nPackets = 90;
     DataInterface *dataInterface = nullptr;
     void getData();
     void run();
