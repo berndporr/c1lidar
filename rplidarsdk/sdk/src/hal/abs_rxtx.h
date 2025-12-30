@@ -34,7 +34,7 @@
 
 #pragma once 
 
-#include "hal/types.h"
+#include "rplidarsdk/sdk/src/hal/types.h"
 
 namespace rp{ namespace hal{
 

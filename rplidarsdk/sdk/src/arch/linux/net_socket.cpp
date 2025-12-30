@@ -7,8 +7,8 @@
  */
 
 
-#include "sdkcommon.h"
-#include "../../hal/socket.h"
+#include "rplidarsdk/sdk/src/sdkcommon.h"
+#include "rplidarsdk/sdk/src/hal/socket.h"
 
 #include <sys/socket.h>
 #include <netinet/in.h>

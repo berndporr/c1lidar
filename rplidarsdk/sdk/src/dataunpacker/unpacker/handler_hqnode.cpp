@@ -41,7 +41,7 @@
 #include "../dataunnpacker_internal.h"
 
 #ifdef CONF_NO_BOOST_CRC_SUPPORT
-#include "sl_crc.h" 
+#include "rplidarsdk/sdk/include/sl_crc.h" 
 #endif
 
 #include "handler_hqnode.h"

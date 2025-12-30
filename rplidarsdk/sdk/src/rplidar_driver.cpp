@@ -30,16 +30,16 @@
   *
   */
 
-#include "sdkcommon.h"
-#include "hal/abs_rxtx.h"
-#include "hal/thread.h"
-#include "hal/types.h"
-#include "hal/assert.h"
-#include "hal/locker.h"
-#include "hal/socket.h"
-#include "hal/event.h"
-#include "rplidar_driver.h"
-#include "sl_crc.h" 
+#include "rplidarsdk/sdk/src/sdkcommon.h"
+#include "rplidarsdk/sdk/src/hal/abs_rxtx.h"
+#include "rplidarsdk/sdk/src/hal/thread.h"
+#include "rplidarsdk/sdk/src/hal/types.h"
+#include "rplidarsdk/sdk/src/hal/assert.h"
+#include "rplidarsdk/sdk/src/hal/locker.h"
+#include "rplidarsdk/sdk/src/hal/socket.h"
+#include "rplidarsdk/sdk/src/hal/event.h"
+#include "rplidarsdk/sdk/include/rplidar_driver.h"
+#include "rplidarsdk/sdk/include/sl_crc.h" 
 #include <algorithm>
 
 namespace rp { namespace standalone{ namespace rplidar {

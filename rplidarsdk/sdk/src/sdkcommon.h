@@ -46,6 +46,6 @@
 #include "hal/types.h"
 #include "hal/assert.h"
 
-#include "rplidar.h"
+#include "rplidarsdk/sdk/include/rplidar.h"
 
 #include "hal/util.h"

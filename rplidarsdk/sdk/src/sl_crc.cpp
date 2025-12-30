@@ -30,7 +30,7 @@
   *
   */
 
-#include "sl_crc.h"  
+#include "rplidarsdk/sdk/include/sl_crc.h"  
 
 namespace sl {namespace crc32 {
     

@@ -30,9 +30,9 @@
   *
   */
 
-#include "sl_lidar_driver.h"
-#include "hal/abs_rxtx.h"
-#include "hal/socket.h"
+#include "rplidarsdk/sdk/include/sl_lidar_driver.h"
+#include "rplidarsdk/sdk/src/hal/abs_rxtx.h"
+#include "rplidarsdk/sdk/src/hal/socket.h"
 
 
 namespace sl {

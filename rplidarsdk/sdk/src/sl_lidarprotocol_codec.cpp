@@ -42,12 +42,12 @@
 #include "hal/socket.h"
 #include "hal/event.h"
 
-#include "sl_lidar_driver.h"
-#include "sl_crc.h" 
+#include "rplidarsdk/sdk/include/sl_lidar_driver.h"
+#include "rplidarsdk/sdk/include/sl_crc.h" 
 #include <algorithm>
 
-#include "sl_async_transceiver.h"
-#include "sl_lidarprotocol_codec.h"
+#include "rplidarsdk/sdk/src/sl_async_transceiver.h"
+#include "rplidarsdk/sdk/src/sl_lidarprotocol_codec.h"
 
 
 

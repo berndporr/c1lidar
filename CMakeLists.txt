@@ -30,52 +30,11 @@ set(LIBSRC
   rplidarsdk/sdk/src/sl_tcp_channel.cpp
 )
 
-set(LIBINCLUDE
-rplidarsdk/sdk/src/sl_lidarprotocol_codec.h
-rplidarsdk/sdk/src/hal/thread.h
-rplidarsdk/sdk/src/hal/byteops.h
-rplidarsdk/sdk/src/hal/waiter.h
-rplidarsdk/sdk/src/hal/assert.h
-rplidarsdk/sdk/src/hal/util.h
-rplidarsdk/sdk/src/hal/byteorder.h
-rplidarsdk/sdk/src/hal/types.h
-rplidarsdk/sdk/src/hal/socket.h
-rplidarsdk/sdk/src/hal/locker.h
-rplidarsdk/sdk/src/hal/event.h
-rplidarsdk/sdk/src/hal/abs_rxtx.h
-rplidarsdk/sdk/src/sl_async_transceiver.h
-rplidarsdk/sdk/src/dataunpacker/dataunnpacker_internal.h
-rplidarsdk/sdk/src/dataunpacker/dataunpacker.h
-rplidarsdk/sdk/src/dataunpacker/unpacker/handler_hqnode.h
-rplidarsdk/sdk/src/dataunpacker/unpacker/handler_normalnode.h
-rplidarsdk/sdk/src/dataunpacker/unpacker/handler_capsules.h
-rplidarsdk/sdk/src/dataunpacker/dataupacker_namespace.h
-rplidarsdk/sdk/src/dataunpacker/dataunnpacker_commondef.h
-rplidarsdk/sdk/src/arch/linux/net_serial.h
-rplidarsdk/sdk/src/arch/linux/timer.h
-rplidarsdk/sdk/src/arch/linux/arch_linux.h
-rplidarsdk/sdk/src/sdkcommon.h
-rplidarsdk/sdk/include/sl_lidar_driver_impl.h
-rplidarsdk/sdk/include/sl_types.h
-rplidarsdk/sdk/include/rplidar.h
-rplidarsdk/sdk/include/sl_crc.h
-rplidarsdk/sdk/include/rplidar_protocol.h
-rplidarsdk/sdk/include/rptypes.h
-rplidarsdk/sdk/include/rplidar_driver.h
-rplidarsdk/sdk/include/sl_lidar_driver.h
-rplidarsdk/sdk/include/sl_lidar_protocol.h
-rplidarsdk/sdk/include/sl_lidar.h
-rplidarsdk/sdk/include/rplidar_cmd.h
-rplidarsdk/sdk/include/sl_lidar_cmd.h
-)
-
 add_library(c1lidarrpi STATIC ${LIBSRC})
 
 target_include_directories(c1lidarrpi
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rplidarsdk/sdk/include>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rplidarsdk/sdk/src/>
 )
 
 set_target_properties(c1lidarrpi PROPERTIES
