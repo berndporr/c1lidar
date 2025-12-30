@@ -424,7 +424,10 @@ void raw_serial::cancelOperation()
     _operation_aborted = true;
     if (_selfpipe[1] == -1) return;
 
-    (int)::write(_selfpipe[1], "x", 1);
+    const int r = (int)::write(_selfpipe[1], "x", 1);
+    if (r < 0) {
+	fprintf(stderr,"raw_serial: write error while cancelling.\n");
+    }
 }
 
 _u32 raw_serial::getTermBaudBitmap(_u32 baud)
