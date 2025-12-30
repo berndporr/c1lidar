@@ -6,7 +6,7 @@ This project describes how to connect a Slamtech RPLIDAR C1 directly
 to the serial port of the Rock5. It should also work with the
 RPI but hasn't been tested yet.
 
-This is a re-worked version of the official [Slamtec SDK](https://github.com/Slamtec/rplidar_sdk) to support cmake and wraps it all into a static library.
+This is a re-worked version of the official [Slamtec SDK](https://github.com/Slamtec/rplidar_sdk) to support cmake and wraps it all into a C++ class.
 
 A 360 degree scan is provided by a callback at the sampling rate
 of the LIDAR at 600RPM (10Hz).
